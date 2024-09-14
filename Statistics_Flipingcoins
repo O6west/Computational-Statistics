@@ -1,0 +1,23 @@
+import random
+import matplotlib.pyplot as plt
+
+n_flips = 1000
+results = [random.choice([0, 1]) for _ in range(n_flips)]  
+
+cumulative_heads = 0
+probabilities = []
+
+for i, flip in enumerate(results):
+    cumulative_heads += flip
+    probabilities.append(cumulative_heads / (i + 1))
+
+final_probability = probabilities[-1]  #여기서 1000번째의 확률을 final_probability에 할당하고,
+
+plt.plot(probabilities)
+
+plt.title(f"Final probability is {final_probability:.3f}")  #title을 Final probability가 몇인지 나타나게 코드를 작성했습니다.  
+
+plt.xlabel("Number of Flips")
+plt.ylabel("Probability")
+plt.ylim(0, 1) 
+plt.show()
